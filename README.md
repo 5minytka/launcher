@@ -18,7 +18,7 @@
 ---
 ### Изображения PvE
 ---
-![pvp](image.png)
+![pvp](https://github.com/5minytka/launcher/blob/main/image.png?raw=true)
 ### Arthur играл с не нашего лаунчера!
 
 
